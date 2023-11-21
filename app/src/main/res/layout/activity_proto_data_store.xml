@@ -40,45 +40,44 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilLastName"
+        style="@style/Widget.Material3.TextInputEditText.FilledBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:hint="Last Name"
-        style="@style/Widget.Material3.TextInputEditText.FilledBox.Dense"
         android:padding="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilFirstname"
-        >
+        app:layout_constraintTop_toBottomOf="@id/tilFirstname">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
-            />
+            android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilFavoriteColor"
+        style="@style/Widget.Material3.TextInputEditText.FilledBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:hint="Favorite Color"
-        style="@style/Widget.Material3.TextInputEditText.FilledBox.Dense"
         android:padding="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilLastName"
-        >
+        app:layout_constraintTop_toBottomOf="@id/tilLastName">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etFavoriteColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
-            />
+            android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
