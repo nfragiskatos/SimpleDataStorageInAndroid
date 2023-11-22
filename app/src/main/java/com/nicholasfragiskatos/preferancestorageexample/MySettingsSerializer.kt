@@ -20,6 +20,5 @@ object MySettingsSerializer : Serializer<MySettings> {
     override suspend fun writeTo(t: MySettings, output: OutputStream) {
         t.writeTo(output)
     }
-
 }
 

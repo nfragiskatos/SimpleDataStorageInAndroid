@@ -33,11 +33,11 @@ class SharedPreferencesActivity : AppCompatActivity() {
     }
 
     private fun initFromPrefs() {
-        val namePrefs = getSharedPreferences(DEMOGRAPHICS_FILE_KEY, Context.MODE_PRIVATE)
+        val demographicsPrefs = getSharedPreferences(DEMOGRAPHICS_FILE_KEY, Context.MODE_PRIVATE)
         val favoritePrefs = getSharedPreferences(FAVORITE_INFO_FILE_KEY, Context.MODE_PRIVATE)
 
-        val firstName = namePrefs.getString(FIRST_NAME_PREF_KEY, "")
-        val lastName = namePrefs.getString(LAST_NAME_PREF_KEY, "")
+        val firstName = demographicsPrefs.getString(FIRST_NAME_PREF_KEY, "")
+        val lastName = demographicsPrefs.getString(LAST_NAME_PREF_KEY, "")
         val favoriteColor = favoritePrefs.getString(FAVORITE_COLOR_PREF_KEY, "")
         val favoriteIceCreamId = favoritePrefs.getInt(FAVORITE_ICE_CREAM_PREF_KEY, R.id.rbChocolate)
 
@@ -49,7 +49,7 @@ class SharedPreferencesActivity : AppCompatActivity() {
     }
 
     private fun savePreferences() {
-        val demographicPrefs = getSharedPreferences(DEMOGRAPHICS_FILE_KEY, Context.MODE_PRIVATE)
+        val demographicsPrefs = getSharedPreferences(DEMOGRAPHICS_FILE_KEY, Context.MODE_PRIVATE)
         val favoritePrefs = getSharedPreferences(FAVORITE_INFO_FILE_KEY, Context.MODE_PRIVATE)
 
         val firstName = binding.etFirstName.text.toString()
@@ -57,11 +57,11 @@ class SharedPreferencesActivity : AppCompatActivity() {
         val favoriteColor = binding.etFavoriteColor.text.toString()
         val iceCreamId = binding.rgIceCreamFlavor.checkedRadioButtonId
 
-        val edit = demographicPrefs.edit()
+        val edit = demographicsPrefs.edit()
         edit.apply()
         edit.commit()
 
-        demographicPrefs.edit().apply {
+        demographicsPrefs.edit().apply {
             putString(FIRST_NAME_PREF_KEY, firstName)
             putString(LAST_NAME_PREF_KEY, lastName)
             apply()

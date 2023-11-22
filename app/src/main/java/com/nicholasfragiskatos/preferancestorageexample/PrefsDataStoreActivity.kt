@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.MutablePreferences
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
@@ -13,7 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import com.nicholasfragiskatos.preferancestorageexample.databinding.ActivityPrefsDataStoreBinding
 import kotlinx.coroutines.launch
 
-val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "Settings")
+val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "MyPrefsDataStore")
 
 class PrefsDataStoreActivity : AppCompatActivity() {
 
@@ -36,7 +37,7 @@ class PrefsDataStoreActivity : AppCompatActivity() {
     }
 
     private suspend fun initFromPreferences() {
-        applicationContext.dataStore.data.collect { settings ->
+        applicationContext.dataStore.data.collect { settings: Preferences ->
 
             val firstName = settings[FIRST_NAME_PREF_KEY] ?: ""
             val lastName = settings[LAST_NAME_PREF_KEY] ?: ""
@@ -56,7 +57,7 @@ class PrefsDataStoreActivity : AppCompatActivity() {
         val favoriteColor = binding.etFavoriteColor.text.toString()
         val iceCreamId = binding.rgIceCreamFlavor.checkedRadioButtonId
 
-        applicationContext.dataStore.edit { settings ->
+        applicationContext.dataStore.edit { settings: MutablePreferences ->
             settings[FIRST_NAME_PREF_KEY] = firstName
             settings[LAST_NAME_PREF_KEY] = lastName
             settings[FAVORITE_COLOR_PREF_KEY] = favoriteColor
