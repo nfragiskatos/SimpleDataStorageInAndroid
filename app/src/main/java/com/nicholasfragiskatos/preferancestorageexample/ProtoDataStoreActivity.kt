@@ -46,7 +46,7 @@ class ProtoDataStoreActivity : AppCompatActivity() {
         val favoriteColor = binding.etFavoriteColor.text.toString()
         val iceCreamId = binding.rgIceCreamFlavor.checkedRadioButtonId
 
-        applicationContext.myProtoDataStore.updateData { settings ->
+        applicationContext.myProtoDataStore.updateData { settings: MySettings ->
             settings.toBuilder()
                 .setFirstName(firstName)
                 .setLastName(lastName)
